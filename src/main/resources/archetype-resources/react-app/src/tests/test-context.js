@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2018 Adobe Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -13,26 +13,15 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-{
-  "presets": ["env", "react", "stage-2"],
-  "plugins": [],
-  "env": {
-    "test": {
-      "plugins": [
-        [
-          "istanbul",
-          {
-            "include": [
-              "src/**.*"
-            ],
-            "exclude": [
-              "dist/**.*",
-              "node_modules/**.*",
-              "tests/**.*"
-            ]
-          }
-        ]
-      ]
-    }
-  }
-}
+require("babel-polyfill");
+
+var context = require.context('.', true, /\.test\.js$/);
+context.keys().forEach(context);
+
+// needed for code coverage, all '.js' files from 'src' folder
+// except from '/server/' are reported
+var coverageContext = require.context('../src', true, /^(?:(.(?!\/server\/))+)\.js$/);
+// filter out all '.css' files
+coverageContext.keys().filter(function(el) {
+    return !el.endsWith(".css");
+}).forEach(coverageContext);

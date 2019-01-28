@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2018 Adobe Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -13,20 +13,11 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/**
- * Extract an id from the cqModel field of given properties
- *
- * @param props     - React.Component props object
- * @returns {string|undefined}
- */
-export function extractModelId (path) {
-    return path.substr(path.lastIndexOf('/') + 1);
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from '../App';
 
-export function isBrowser() {
-    try {
-        return typeof window !== 'undefined';
-    }catch(e){ 
-        return false;
-    }
-}
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+});

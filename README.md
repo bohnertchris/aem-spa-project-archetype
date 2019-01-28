@@ -1,5 +1,9 @@
 ## Maven Archetype for SPA Starter Kit
 
+This archetype creates a minimal Adobe Experience Manager project as a starting point for your own SPA projects. The properties that must be provided when using this archetype allow to name as desired all parts of this project.
+
+See the [Getting Started with the AEM SPA Editor - WKND Events Tutorial](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html) on the Adobe Help Center website for an example of how to use it.
+
 ## System requirements
 
 - [Java](https://www.java.com/en/download/) 1.8 or higher
@@ -72,7 +76,7 @@ $ mvn archetype:generate \
      -DarchetypeCatalog=internal \
      -DarchetypeGroupId=com.adobe.cq.spa.archetypes  \
      -DarchetypeArtifactId=aem-spa-project-archetype  \
-     -DarchetypeVersion=1.0.0-SNAPSHOT \
+     -DarchetypeVersion=1.0.3-SNAPSHOT \
 ```
 
 Please note that properties declared in [archetype-metadata.xml](src/main/resources/META-INF/maven/archetype-metadata.xml) with `defaultValue` are not asked during interactive mode and are defaulted to suggested values. 
@@ -85,7 +89,7 @@ $ mvn archetype:generate -B \
      -DarchetypeCatalog=local  \
      -DarchetypeGroupId=com.adobe.cq.spa.archetypes  \
      -DarchetypeArtifactId=aem-spa-project-archetype  \
-     -DarchetypeVersion=1.0.0-SNAPSHOT \
+     -DarchetypeVersion=1.0.3-SNAPSHOT \
      -Dpackage=<package> \
      -DgroupId=<group-id> \
      -DartifactId=<artifact-id> \
@@ -95,7 +99,6 @@ $ mvn archetype:generate -B \
      -DcomponentGroup=<component-group> \
      -DoptionFrontend=react
 ```
-
 ## Guidelines for SPA development in AEM
 
 Developing single page applications on AEM assumes that the front-end developer observes standard best practices when creating an SPA. If as a front end developer you follow these general best practices as well as few AEM-specific principles, your SPA will be functional with AEM and its content-authoring capabilities.

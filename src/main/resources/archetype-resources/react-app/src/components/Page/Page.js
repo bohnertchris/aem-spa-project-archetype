@@ -13,9 +13,10 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-import React from 'react';
 import {Page, MapTo, withComponentMappingContext } from "@adobe/cq-react-editable-components";
 import {withRoute} from './../../RouteHelper';
+
+require('./Page.css');
 
 // This component is a variant of a Page component mapped to the "${projectName}/components/page" resource type
 // For now, the rendering is the same as the RootPage; this is more for illustration purposes
@@ -28,4 +29,4 @@ class AppPage extends Page {
     }
 }
 
-MapTo('${projectName}/components/page')(withComponentMappingContext(AppPage));
+MapTo('${projectName}/components/page')(withComponentMappingContext(withRoute(AppPage)));
